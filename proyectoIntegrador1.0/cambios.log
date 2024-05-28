@@ -1,0 +1,106 @@
+[2024-05-22 22:11:04] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:11:04] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:11:04] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:11:48] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 1
+[2024-05-22 22:16:06] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:16:06] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:16:06] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:16:27] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 1
+[2024-05-22 22:46:46] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:46:46] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:46:46] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:48:00] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:48:00] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:48:00] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:48:31] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-22 22:52:00] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:52:01] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:52:01] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:52:25] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:52:25] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:52:25] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:53:09] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:53:09] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:53:09] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:53:33] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-22 22:53:36] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-22 22:57:14] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:57:14] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:57:14] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:57:32] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-22 22:58:41] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:58:41] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:58:41] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:58:49] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-22 22:59:31] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 22:59:31] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:59:31] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 22:59:37] [ INFO ] [OdontologoDaoH2:113] Odontologos buscados exitosamente!
+[2024-05-22 23:10:22] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 23:10:22] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 23:10:22] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 23:13:50] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 23:13:50] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 23:13:50] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 23:14:12] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-22 23:14:28] [ INFO ] [OdontologoDaoH2:113] Odontologos buscados exitosamente!
+[2024-05-22 23:17:29] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 23:17:29] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 23:17:29] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 23:17:41] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-22 23:17:49] [ INFO ] [OdontologoDaoH2:113] Odontologos buscados exitosamente!
+[2024-05-22 23:19:28] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-22 23:19:28] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 23:19:28] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-22 23:19:39] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 1
+[2024-05-22 23:19:39] [ INFO ] [OdontologoDaoH2:58] Odontologo Buscado exitosamente!
+[2024-05-22 23:19:55] [ INFO ] [OdontologoDaoH2:114] Odontologos buscados exitosamente!
+[2024-05-23 16:38:49] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 16:38:49] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 16:38:49] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 16:39:40] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 16:39:40] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 16:39:40] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 16:51:56] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 16:51:56] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 16:51:56] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 16:52:07] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-23 16:52:07] [ INFO ] [OdontologoDaoH2:58] Odontologo Buscado exitosamente!
+[2024-05-23 16:53:13] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 16:53:13] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 16:53:13] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 16:53:29] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-23 16:53:29] [ INFO ] [OdontologoDaoH2:58] Odontologo Buscado exitosamente!
+[2024-05-23 18:54:28] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 18:54:28] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 18:54:28] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 18:57:34] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 18:57:34] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 18:57:34] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 18:57:43] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 2
+[2024-05-23 18:57:43] [ INFO ] [OdontologoDaoH2:58] Odontologo Buscado exitosamente!
+[2024-05-23 19:00:15] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 19:00:15] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:00:15] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:12:11] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 19:12:11] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:12:11] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:12:22] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:16:17] [ INFO ] [OdontologoDaoH2:50] iniciando la busqueda de un odontologo por id: 3
+[2024-05-23 19:16:17] [ INFO ] [OdontologoDaoH2:58] Odontologo Buscado exitosamente!
+[2024-05-23 19:26:11] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 19:26:11] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:26:11] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:26:19] [ INFO ] [OdontologoDaoH2:114] Odontologos buscados exitosamente!
+[2024-05-23 19:26:37] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:26:41] [ INFO ] [OdontologoDaoH2:114] Odontologos buscados exitosamente!
+[2024-05-23 19:29:15] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 19:29:15] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:29:15] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:29:34] [ INFO ] [OdontologoDaoH2:114] Odontologos buscados exitosamente!
+[2024-05-23 19:32:45] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-23 19:32:45] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:32:45] [ INFO ] [OdontologoDaoH2:39] Odontologo guardado exitosamente
+[2024-05-23 19:32:56] [ INFO ] [OdontologoDaoH2:114] Odontologos buscados exitosamente!
+[2024-05-23 19:33:39] [ WARN ] [OdontologoDaoH2:100] Odontologo eliminado!
+[2024-05-23 19:33:59] [ INFO ] [OdontologoDaoH2:114] Odontologos buscados exitosamente!

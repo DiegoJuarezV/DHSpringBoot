@@ -1,0 +1,123 @@
+[2024-05-27 12:51:37] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 1
+[2024-05-27 12:51:37] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 12:53:06] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 2
+[2024-05-27 12:53:06] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 12:53:26] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 3
+[2024-05-27 13:05:57] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 2
+[2024-05-27 13:05:57] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 13:05:57] [ WARN ] [PacienteDAOH2:101] Paciente eliminado!
+[2024-05-27 13:06:21] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 2
+[2024-05-27 13:06:31] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 1
+[2024-05-27 13:06:31] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 13:07:58] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 1
+[2024-05-27 13:07:58] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 13:07:58] [ INFO ] [PacienteDAOH2:62] Paciente encontrado!
+[2024-05-27 13:15:21] [ INFO ] [PacienteDAOH2:118] Pacientes buscados exitosamente
+[2024-05-27 13:15:21] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 13:15:21] [ INFO ] [PacienteDAOH2:118] Pacientes buscados exitosamente
+[2024-05-27 13:15:21] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 13:16:04] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 2
+[2024-05-27 13:17:23] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 2
+[2024-05-27 13:17:27] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 1
+[2024-05-27 13:17:27] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 13:17:27] [ INFO ] [PacienteDAOH2:62] Paciente encontrado!
+[2024-05-27 13:25:55] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 13:26:12] [ INFO ] [PacienteDAOH2:118] Pacientes buscados exitosamente
+[2024-05-27 13:26:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 13:26:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 13:26:12] [ INFO ] [PacienteDAOH2:118] Pacientes buscados exitosamente
+[2024-05-27 13:26:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 13:26:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 13:28:11] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: 1
+[2024-05-27 13:28:11] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 13:28:11] [ INFO ] [PacienteDAOH2:62] Paciente encontrado!
+[2024-05-27 13:28:11] [ WARN ] [PacienteDAOH2:102] Paciente eliminado!
+[2024-05-27 13:28:19] [ INFO ] [PacienteDAOH2:118] Pacientes buscados exitosamente
+[2024-05-27 13:28:19] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 13:28:19] [ INFO ] [PacienteDAOH2:118] Pacientes buscados exitosamente
+[2024-05-27 13:28:19] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 13:32:04] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 13:33:00] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 13:33:07] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-05-27 13:33:07] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-05-27 13:33:07] [ ERROR] [PacienteDAOH2:42] Parametro "#6" no está fijado
+Parameter "#6" is not set; SQL statement:
+INSERT INTO PACIENTES (NOMBRE, APELLIDO, CEDULA, FECHA_INGRESO, DOMICILIO_ID, EMAIL) VALUES(?,?,?,?,?,?) [90012-224]
+[2024-05-27 13:37:18] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 13:37:36] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-05-27 13:37:36] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-05-27 13:37:36] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-05-27 14:11:35] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 14:12:34] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-05-27 14:12:34] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-05-27 14:12:34] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-05-27 14:14:27] [ INFO ] [PacienteDAOH2:119] Pacientes buscados exitosamente
+[2024-05-27 14:14:27] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 14:14:27] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 14:14:27] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-05-27 14:14:27] [ INFO ] [PacienteDAOH2:119] Pacientes buscados exitosamente
+[2024-05-27 14:14:27] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 14:14:27] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 14:14:27] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-05-27 14:28:51] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 14:29:43] [ INFO ] [PacienteDAOH2:119] Pacientes buscados exitosamente
+[2024-05-27 14:29:43] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 14:29:43] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 14:29:43] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-05-27 14:29:43] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-05-27 14:29:43] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-05-27 20:13:26] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 20:13:42] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-05-27 20:13:42] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 20:13:42] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 20:13:42] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-05-27 20:13:42] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 20:13:42] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 20:14:38] [ INFO ] [PacienteDAOH2:50] iniciando la busqueda de un paciente por id: 2
+[2024-05-27 20:14:38] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 20:14:38] [ INFO ] [PacienteDAOH2:63] Paciente encontrado!
+[2024-05-27 20:14:38] [ INFO ] [PacienteDAOH2:73] Iniciando la actualizacion del paciente: Damian
+[2024-05-27 20:14:38] [ WARN ] [DomicilioDaoH2:74] Domicilio actualizado!
+[2024-05-27 20:15:44] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 20:15:56] [ INFO ] [PacienteDAOH2:50] iniciando la busqueda de un paciente por id: 2
+[2024-05-27 20:15:56] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 20:15:56] [ INFO ] [PacienteDAOH2:63] Paciente encontrado!
+[2024-05-27 20:15:56] [ INFO ] [PacienteDAOH2:73] Iniciando la actualizacion del paciente: Damian
+[2024-05-27 20:15:56] [ WARN ] [DomicilioDaoH2:74] Domicilio actualizado!
+[2024-05-27 20:36:15] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 20:36:34] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-05-27 20:36:34] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 20:36:34] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 20:36:34] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-05-27 20:36:34] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-05-27 20:36:34] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-05-27 20:41:20] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 20:41:20] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:41:20] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:42:20] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: 1
+[2024-05-27 20:42:20] [ INFO ] [OdontologoDaoH2:54] Odontologo Buscado exitosamente!
+[2024-05-27 20:45:02] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 20:45:02] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:45:02] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:46:11] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:51:06] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 20:51:06] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:51:06] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:52:16] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: 1
+[2024-05-27 20:52:16] [ INFO ] [OdontologoDaoH2:54] Odontologo Buscado exitosamente!
+[2024-05-27 20:52:16] [ WARN ] [OdontologoDaoH2:75] Odontologo actualizado
+[2024-05-27 20:55:49] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 20:55:49] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:55:49] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:56:25] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: null
+[2024-05-27 20:56:25] [ ERROR] [OdontologoDaoH2:59] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-27 20:58:29] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 20:58:29] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:58:29] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 20:58:50] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: 1
+[2024-05-27 20:58:51] [ INFO ] [OdontologoDaoH2:54] Odontologo Buscado exitosamente!
+[2024-05-27 20:58:51] [ WARN ] [OdontologoDaoH2:89] Odontologo eliminado!
+[2024-05-27 21:00:28] [ INFO ] [BD:31] tabla creada con exito
+[2024-05-27 21:00:28] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 21:00:28] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-05-27 21:00:48] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!

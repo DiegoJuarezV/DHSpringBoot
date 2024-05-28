@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home2</title>
+</head>
+<body>
+<div>
+<h1>Total Pacientes</h1>
+<ul>
+    <li th:each="odontologo : ${odontologos}">
+        <p>Nombre: <span th:text="${odontologo.nombre}"></span></p>
+        <p>Apellido: <span th:text="${odontologo.apellido}"></span></p>
+    </li>
+</ul>
+</div>
+</body>
+</html>

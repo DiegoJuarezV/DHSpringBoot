@@ -1,0 +1,11 @@
+* Agregar test unitarios
+
+* Verificar método buscar paciente por email (dejar o eliminar)
+
+* Modificar el método actualizar (Repositories,iDao, services)
+
+* Agregar clase Turnos (Repository,service, controller)
+
+* Agregar DTOs para las APIs 
+
+* Crear APIs con ResponseEntity 
