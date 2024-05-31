@@ -29,22 +29,20 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity eliminarPacienteId(@PathVariable("id") Integer id) {
-        ResponseEntity response = null;
-        if (pacienteService.buscarPaciente(id) == null) {
-            response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } else {
+    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) {
+        Paciente paciente = pacienteService.buscarPaciente(id);
+        if (paciente != null) {
             pacienteService.eliminarPaciente(id);
-            response = new ResponseEntity<>(HttpStatus.OK);
+            return ResponseEntity.ok().body("Paciente eliminado");
         }
-        return response;
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente no encontrado o eliminado con anterioridad");
     }
 
     @GetMapping
     public ResponseEntity<List<Paciente>> listarPacientes() {
         List<Paciente> pacientes = pacienteService.buscarTodos();
         if (pacientes == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(pacienteService.buscarTodos());
     }
@@ -55,14 +53,12 @@ public class PacienteController {
     }
 
     @PutMapping("/actualizar")
-    public String actualizar(@RequestBody Paciente paciente) {
+    public ResponseEntity<String> actualizar(@RequestBody Paciente paciente) {
         Paciente pacienteBuscado = pacienteService.buscarPaciente(paciente.getId());
         if (pacienteBuscado != null) {
             pacienteService.actualizarPaciente(paciente);
-            return "Paciente actualizado";
+            return ResponseEntity.ok().body("Paciente actualizado");
         }
-        else {
-            return "Paciente no existente";
-        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente no encontrado para actualizar");
     }
 }
