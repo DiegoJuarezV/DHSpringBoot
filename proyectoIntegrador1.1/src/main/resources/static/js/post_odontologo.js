@@ -1,67 +1,66 @@
-window.addEventListener('load', function () {
+window.addEventListener('load', function(){
+        const form = document.forms[0];
+        const matriculaOdon = document.querySelector("#matricula");
+        const nombreOdon = document.querySelector("#nombre");
+        const apellidoOdon = document.querySelector("#apellido");
 
-    //Al cargar la pagina buscamos y obtenemos el formulario donde estarán
-    //los datos que el usuario cargará de la nueva pelicula
-    const formulario = document.querySelector('#add_new_odontologo');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    //Ante un submit del formulario se ejecutará la siguiente funcion
-    formulario.addEventListener('submit', function (event) {
+            const payload = {
+                numeroMatricula: matriculaOdon.value,
+                nombre: nombreOdon.value,
+                apellido: apellidoOdon.value
+            };
 
-       //creamos un JSON que tendrá los datos de la nueva película
-        const formData = {
-            numeroMatricula: document.querySelector('#matricula').value,
-            nombre: document.querySelector('#nombre').value,
-            apellido: document.querySelector('#apellido').value
-        };
-        //invocamos utilizando la función fetch la API peliculas con el método POST que guardará
-        //la película que enviaremos en formato JSON
-        const url = '/odontologos/registrar';
-        const settings = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
+            const settings = {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(payload)
+            };
+
+            realizarRegistro(settings);
+            form.reset();
+        })
+
+        function realizarRegistro(settings) {
+            fetch("/odontologos/registrar", settings)
+                .then(async response => {
+                    if (response.ok != true) {
+                        return Promise.reject(response)
+                    }
+                    try {
+                        const data = await response.json();
+                        renderizarMsjExito();
+                    } catch (error) {
+                        renderizarMsjError();
+                    }
+                })
         }
 
-        fetch(url, settings)
-            .then(response => response.json())
-            .then(data => {
-                 //Si no hay ningun error se muestra un mensaje diciendo que la pelicula
-                 //se agrego bien
-                 let successAlert = '<div class="alert alert-success alert-dismissible">' +
-                     '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                     '<strong>Odontologo Agregado</strong></div>'
+        function renderizarMsjExito() {
+            const divRespuesta = document.querySelector("#response");
 
-                 document.querySelector('#response').innerHTML = successAlert;
-                 document.querySelector('#response').style.display = "block";
-                 resetUploadForm();
-            })
-            .catch(error => {
-                    //Si hay algun error se muestra un mensaje diciendo que la pelicula
-                    //no se pudo guardar y se intente nuevamente
-                    let errorAlert = '<div class="alert alert-danger alert-dismissible">' +
-                                     '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                                     '<strong> Error intente nuevamente</strong> </div>'
-
-                      document.querySelector('#response').innerHTML = errorAlert;
-                      document.querySelector('#response').style.display = "block";
-                     //se dejan todos los campos vacíos por si se quiere ingresar otra pelicula
-                     resetUploadForm();})
-    });
-
-    function resetUploadForm(){
-        document.querySelector('#matricula').value = "";
-        document.querySelector('#nombre').value = "";
-         document.querySelector('#apellido').value = "";
-    }
-
-    (function(){
-        let pathname = window.location.pathname;
-        if(pathname === "/"){
-            document.querySelector(".nav .nav-item a:first").addClass("active");
-        } else if (pathname == "/get_odontologos.html") {
-            document.querySelector(".nav .nav-item a:last").addClass("active");
+            divRespuesta.style.display = "block";
+            divRespuesta.innerHTML = `
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Exito!</strong> Pelicula agregada
+                </div>
+            `
         }
-    })();
-});
+
+        function renderizarMsjError() {
+            const divRespuesta = document.querySelector("#response");
+
+            divRespuesta.style.display = "block";
+            divRespuesta.innerHTML = `
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong> Error intente nuevamente</strong>
+                </div>
+            `
+        }
+    })
