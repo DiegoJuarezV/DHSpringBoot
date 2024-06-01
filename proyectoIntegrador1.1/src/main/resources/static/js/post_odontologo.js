@@ -28,15 +28,14 @@ window.addEventListener('load', function(){
         function realizarRegistro(settings) {
             fetch("/odontologos/registrar", settings)
                 .then(async response => {
-                    if (response.ok != true) {
-                        return Promise.reject(response)
+                    if (!response.ok) {
+                        throw new Error("Error en la respuesta del servidor")
                     }
-                    try {
-                        const data = await response.json();
-                        renderizarMsjExito();
-                    } catch (error) {
+                    const data = await response.json();
+                    renderizarMsjExito();
+                    })
+                    .catch (error => {
                         renderizarMsjError();
-                    }
                 })
         }
 
