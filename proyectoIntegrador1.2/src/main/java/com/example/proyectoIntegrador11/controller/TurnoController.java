@@ -3,6 +3,7 @@ package com.example.proyectoIntegrador11.controller;
 import com.example.proyectoIntegrador11.entity.Odontologo;
 import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.entity.Turno;
+import com.example.proyectoIntegrador11.entity.TurnoDTO;
 import com.example.proyectoIntegrador11.service.OdontologoService;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import com.example.proyectoIntegrador11.service.TurnoService;
@@ -25,20 +26,20 @@ public class TurnoController {
     private OdontologoService odontologoService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<Turno> guardarTurno(@RequestBody Turno turno){
-        Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turno.getPaciente().getId());
-        Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turno.getOdontologo().getId());
+    public ResponseEntity<Turno> guardarTurno(@RequestBody TurnoDTO turnoDTO){
+        Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turnoDTO.getPaciente().getId());
+        Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologo().getId());
         if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
-            turno.setPaciente(pacienteBuscado.get());
-            turno.setOdontologo(odontologoBuscado.get());
-            return ResponseEntity.ok(turnoService.guardarTurno(turno));
+            turnoDTO.setPaciente(pacienteBuscado.get());
+            turnoDTO.setOdontologo(odontologoBuscado.get());
+            return ResponseEntity.ok(turnoService.guardarTurno(turnoDTO));
         }
         return ResponseEntity.badRequest().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<Turno>> listarTodosLosTurnos(){
-        List<Turno> turnos = turnoService.buscarTurnos();
+    public ResponseEntity<List<TurnoDTO>> listarTodosLosTurnos(){
+        List<TurnoDTO> turnos = turnoService.buscarTurnos();
         if (turnos.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -47,7 +48,7 @@ public class TurnoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarTurno(@PathVariable("id") Integer id) {
-        Optional<Turno> turnoBuscado = turnoService.buscarTurnoPorId(id);
+        Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoPorId(id);
         if (turnoBuscado.isPresent()) {
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok("Turno eliminado");
@@ -56,8 +57,8 @@ public class TurnoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Turno> buscarPorId(@PathVariable("id") Integer id) {
-        Optional<Turno> turno = turnoService.buscarTurnoPorId(id);
+    public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable("id") Integer id) {
+        Optional<TurnoDTO> turno = turnoService.buscarTurnoPorId(id);
         if (turno.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
@@ -65,10 +66,10 @@ public class TurnoController {
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<String> actualizarTurno(@RequestBody Turno turno) {
-        Optional<Turno> actualizarTurno = turnoService.buscarTurnoPorId(turno.getId());
+    public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO) {
+        Optional<TurnoDTO> actualizarTurno = turnoService.buscarTurnoPorId(turnoDTO.getId());
         if (actualizarTurno.isPresent()) {
-            turnoService.actualizarTurno(turno);
+            turnoService.actualizarTurno(turnoDTO);
             return ResponseEntity.ok("Turno actualizado");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Turno no encontrado");

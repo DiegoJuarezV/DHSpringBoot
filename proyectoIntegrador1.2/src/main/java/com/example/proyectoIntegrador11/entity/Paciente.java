@@ -1,6 +1,6 @@
 package com.example.proyectoIntegrador11.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,8 +30,8 @@ public class Paciente {
     private Domicilio domicilio;
     @Column(nullable = false)
     private String email;
-    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("paciente")
+    @OneToMany(mappedBy = "paciente")
+    @JsonIgnore
     private Set<Turno> turno = new HashSet<>();
 
     @Override

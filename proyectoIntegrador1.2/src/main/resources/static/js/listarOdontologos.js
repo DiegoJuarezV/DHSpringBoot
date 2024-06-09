@@ -17,6 +17,7 @@ window.addEventListener('load', function() {
                     const data = await response.json();
                     renderizarOdontologos(data);
                     eliminarOdontologo();
+                    actualizarOdontologo(data);
                 } catch (err) {
                     console.error(err)
                 }
@@ -28,7 +29,9 @@ window.addEventListener('load', function() {
             filaOdontologo.innerHTML = ""
             lista.forEach(odontologo => {
                 let updateBtn = `
-                <button id="btn_id_${odontologo.id}" type="button" onclick="findBy('${odontologo.id}')" class="btn btn-info btn_id">
+                <button id="${odontologo.id}"
+                    type="button"
+                    class="btn btn-info btn_id">
                     ${odontologo.id}
                 </button>
                 `
@@ -69,4 +72,41 @@ window.addEventListener('load', function() {
                     })
                 });
         }
+
+        function actualizarOdontologo(data) {
+                    const btnActualizar = document.querySelectorAll(".btn_id");
+                    console.log(btnActualizar)
+                    const mostrarDatos = document.querySelector("#div_odontologo_updating");
+                    btnActualizar.forEach(btn => {
+                        const {id} = btn
+                        btn.addEventListener("click", function() {
+                           mostrarDatos.style.display = "block";
+                           const odontologo = data.find(od => od.id == id)
+                           renderizarDatosActualizar(odontologo);
+                        })
+                    });
+                  }
+
+        function renderizarDatosActualizar(odontologo) {
+                    const formUpdate = document.querySelector("#update_odontologo_form")
+                    formUpdate.innerHTML = `
+                        <div class="form-group">
+                            <label >Id:</label>
+                            <input type="text" class="form-control" id="odontologo_id" value="${odontologo.id}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label >Matricula:</label>
+                            <input type="text" class="form-control" placeholder="matricula" id="matricula" value="${odontologo.numeroMatricula}">
+                        </div>
+                        <div class="form-group">
+                            <label >Nombre:</label>
+                            <input type="text" class="form-control" placeholder="nombre" id="nombre" value="${odontologo.nombre}">
+                        </div>
+                        <div class="form-group">
+                            <label >Apellido:</label>
+                            <input type="text" class="form-control" placeholder="apellido" id="apellido" value="${odontologo.apellido}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Modificar</button>
+                        `
+                  }
     })
