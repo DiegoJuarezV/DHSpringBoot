@@ -1,12 +1,8 @@
 package com.example.proyectoIntegrador11.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -22,9 +18,6 @@ public class Odontologo {
     private String nombre;
     @Column
     private String apellido;
-    @OneToMany(mappedBy = "odontologo")
-    @JsonIgnore
-    private Set<Turno> turno = new HashSet<>();
 
     @Override
     public String toString() {

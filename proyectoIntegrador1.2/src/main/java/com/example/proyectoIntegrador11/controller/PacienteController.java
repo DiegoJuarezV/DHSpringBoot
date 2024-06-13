@@ -2,6 +2,8 @@ package com.example.proyectoIntegrador11.controller;
 
 
 import com.example.proyectoIntegrador11.entity.Paciente;
+import com.example.proyectoIntegrador11.exception.BadRequestException;
+import com.example.proyectoIntegrador11.exception.ResouceNotFounException;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,13 +29,13 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) throws ResouceNotFounException {
         Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             pacienteService.eliminarPaciente(id);
             return ResponseEntity.ok().body("Paciente eliminado");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente no encontrado o eliminado con anterioridad");
+        throw new ResouceNotFounException("No existe un paciente con id: " + id);
     }
 
     @GetMapping
@@ -46,10 +48,10 @@ public class PacienteController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Paciente> registrar(@RequestBody Paciente paciente) {
+    public ResponseEntity<Paciente> registrar(@RequestBody Paciente paciente) throws BadRequestException {
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorEmail(paciente.getEmail());
         if (pacienteBuscado.isPresent()) {
-            return ResponseEntity.badRequest().build();
+            throw new BadRequestException("El paciente ya está registrado con el email ingresado");
         }
         return ResponseEntity.ok(pacienteService.guardarPaciente(paciente));
     }

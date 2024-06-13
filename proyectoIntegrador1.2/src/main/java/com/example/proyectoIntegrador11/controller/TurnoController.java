@@ -4,6 +4,8 @@ import com.example.proyectoIntegrador11.entity.Odontologo;
 import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.entity.Turno;
 import com.example.proyectoIntegrador11.entity.TurnoDTO;
+import com.example.proyectoIntegrador11.exception.BadRequestException;
+import com.example.proyectoIntegrador11.exception.ResouceNotFounException;
 import com.example.proyectoIntegrador11.service.OdontologoService;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import com.example.proyectoIntegrador11.service.TurnoService;
@@ -26,7 +28,7 @@ public class TurnoController {
     private OdontologoService odontologoService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<Turno> guardarTurno(@RequestBody TurnoDTO turnoDTO){
+    public ResponseEntity<Turno> guardarTurno(@RequestBody TurnoDTO turnoDTO) throws BadRequestException {
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turnoDTO.getPaciente().getId());
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologo().getId());
         if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
@@ -34,7 +36,7 @@ public class TurnoController {
             turnoDTO.setOdontologo(odontologoBuscado.get());
             return ResponseEntity.ok(turnoService.guardarTurno(turnoDTO));
         }
-        return ResponseEntity.badRequest().build();
+        throw new BadRequestException("El paciente y/o odontologo no está registrado en la base de datos");
     }
 
     @GetMapping
@@ -47,13 +49,13 @@ public class TurnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarTurno(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> eliminarTurno(@PathVariable("id") Integer id) throws ResouceNotFounException {
         Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoPorId(id);
         if (turnoBuscado.isPresent()) {
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok("Turno eliminado");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Turno no encontrado o eliminado con anterioridad");
+        throw new ResouceNotFounException("No existe un turno con id: " + id);
     }
 
     @GetMapping("/{id}")

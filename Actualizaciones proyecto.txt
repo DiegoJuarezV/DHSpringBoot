@@ -1,11 +1,3 @@
-* Agregar test unitarios
-
-* Verificar método buscar paciente por email (dejar o eliminar)
-
-* Modificar el método actualizar (Repositories,iDao, services)
-
-* Agregar clase Turnos (Repository,service, controller)
-
-* Agregar DTOs para las APIs 
-
-* Crear APIs con ResponseEntity 
+-- Clase Turno: agregué un referenceColumnName = "id" a joinColumn de paciente y odontologo
+-- A las clases Paciente y Odontologo les borré el Set de turnos junto con la relación de OneToMany y el JsonIgnore
+-- Exceptions agregados para eliminar y registrar (pacientes, odontólogos y turnos)
