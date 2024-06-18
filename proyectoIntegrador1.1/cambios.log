@@ -625,3 +625,23 @@ INSERT INTO PACIENTES (NOMBRE, APELLIDO, CEDULA, FECHA_INGRESO, DOMICILIO_ID, EM
 [2024-06-03 18:07:45] [ INFO ] [BD:31] tabla creada con exito
 [2024-06-03 18:07:45] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
 [2024-06-03 18:07:45] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-17 20:58:30] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-17 20:58:30] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-17 20:58:30] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-17 20:58:55] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-17 20:59:03] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-17 20:59:05] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-17 21:00:31] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: 3
+[2024-06-17 21:00:31] [ INFO ] [OdontologoDaoH2:54] Odontologo Buscado exitosamente!
+[2024-06-17 21:00:31] [ WARN ] [OdontologoDaoH2:89] Odontologo eliminado!
+[2024-06-17 21:00:31] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-17 21:00:58] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: 2
+[2024-06-17 21:00:58] [ INFO ] [OdontologoDaoH2:54] Odontologo Buscado exitosamente!
+[2024-06-17 21:00:58] [ WARN ] [OdontologoDaoH2:89] Odontologo eliminado!
+[2024-06-17 21:00:58] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-17 21:01:07] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: 1
+[2024-06-17 21:01:07] [ INFO ] [OdontologoDaoH2:54] Odontologo Buscado exitosamente!
+[2024-06-17 21:01:07] [ WARN ] [OdontologoDaoH2:89] Odontologo eliminado!
+[2024-06-17 21:01:07] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-17 21:01:11] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-17 21:01:16] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
