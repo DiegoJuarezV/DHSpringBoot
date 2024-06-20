@@ -21,7 +21,7 @@ public class PacienteService {
         return pacienteRepository.save(paciente);
     }
 
-    public Optional<Paciente> buscarPacientePorId(Integer id) {
+    public Optional<Paciente> buscarPacientePorId(Long id) {
         return pacienteRepository.findById(id);
     }
 
@@ -33,7 +33,7 @@ public class PacienteService {
         return pacienteRepository.findByEmail(email);
     }
 
-    public void eliminarPaciente(Integer id) {
+    public void eliminarPaciente(Long id) {
         pacienteRepository.deleteById(id);
     }
 }

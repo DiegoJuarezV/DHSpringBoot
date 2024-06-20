@@ -1,3 +1,7 @@
--- Clase Turno: agregué un referenceColumnName = "id" a joinColumn de paciente y odontologo
--- A las clases Paciente y Odontologo les borré el Set de turnos junto con la relación de OneToMany y el JsonIgnore
--- Exceptions agregados para eliminar y registrar (pacientes, odontólogos y turnos)
+-- Agregué constructor vacio y otro sin id en clases (odontologo, paciente, turno y domicilio) para que funcionen los tests
+
+-- Modifiqué el TurnoDTO, TurnoService y TurnoController (cambié integers por Long--no necesario) para aplicar el    metodo DTO del profesor
+En la parte de la clase TurnoDTO cambié el atributo paciente y odontologo por pacienteId y odontologoId
+En la parte del TurnoController en registrar turno lo cambié para que reciba un ResponseEntity<TurnoDTO> y en el parametro (Turno turno)-----//estaba al revés
+
+--Agregué los test de turnos (listar turnos) y odontologos (guardar odontologo) 

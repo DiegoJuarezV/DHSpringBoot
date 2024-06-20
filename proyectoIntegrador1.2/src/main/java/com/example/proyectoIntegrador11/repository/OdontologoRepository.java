@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface OdontologoRepository extends JpaRepository<Odontologo, Integer> {
-    Optional<Odontologo> findByNumeroMatricula(Integer numeroMatricula);
+public interface OdontologoRepository extends JpaRepository<Odontologo, Long> {
+    Optional<Odontologo> findByNumeroMatricula(Long numeroMatricula);
 }

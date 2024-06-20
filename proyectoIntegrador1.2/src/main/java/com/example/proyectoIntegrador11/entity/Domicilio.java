@@ -11,7 +11,7 @@ import lombok.Setter;
 public class Domicilio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     @Column
     private String calle;
     @Column
@@ -20,6 +20,16 @@ public class Domicilio {
     private String localidad;
     @Column
     private String provincia;
+
+    public Domicilio() {
+    }
+
+    public Domicilio(String calle, Integer numero, String provincia, String localidad) {
+        this.calle = calle;
+        this.numero = numero;
+        this.provincia = provincia;
+        this.localidad = localidad;
+    }
 
     @Override
     public String toString() {

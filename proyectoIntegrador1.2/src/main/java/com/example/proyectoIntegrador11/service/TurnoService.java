@@ -1,9 +1,10 @@
 package com.example.proyectoIntegrador11.service;
 
+import com.example.proyectoIntegrador11.entity.Odontologo;
+import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.entity.Turno;
 import com.example.proyectoIntegrador11.entity.TurnoDTO;
 import com.example.proyectoIntegrador11.repository.TurnoRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,38 +15,49 @@ public class TurnoService {
     @Autowired
     private TurnoRepository turnoRepository;
 
-    @Autowired
-    ObjectMapper mapper;
-
-    public List<TurnoDTO> buscarTurnos() {
-        List<Turno> turnos = turnoRepository.findAll();
-        List<TurnoDTO> turnoDTOS = new ArrayList<>();
-        for (Turno turno : turnos) {
-            turnoDTOS.add(mapper.convertValue(turno, TurnoDTO.class));
+    public TurnoDTO registrarTurno(Turno turno){
+        return turnoAturnoDTO(turnoRepository.save(turno));
+    }
+    public List<TurnoDTO> listarTodos(){
+        List<Turno> listaTurnos= turnoRepository.findAll();
+        List<TurnoDTO> listaDTO= new ArrayList<>();
+        for (Turno turno : listaTurnos) {
+            listaDTO.add(turnoAturnoDTO(turno));
         }
-        return turnoDTOS;
+        return listaDTO;
     }
-
-    public Turno guardarTurno(TurnoDTO turnoDTO) {
-        Turno turno = mapper.convertValue(turnoDTO, Turno.class);
-        return turnoRepository.save(turno);
-    }
-
-    public Optional<TurnoDTO> buscarTurnoPorId(Integer id) {
-        Optional<Turno> turno = turnoRepository.findById(id);
-        if (turno.isPresent()) {
-            TurnoDTO turnoDTO = mapper.convertValue(turno.get(), TurnoDTO.class);
-            return Optional.of(turnoDTO);
+    public Optional<TurnoDTO> buscarTurnoId(Long id){
+        Optional<Turno> turnoBuscado= turnoRepository.findById(id);
+        if(turnoBuscado.isPresent()){
+            return Optional.of(turnoAturnoDTO(turnoBuscado.get()));
         }
         return Optional.empty();
     }
-
-    public void actualizarTurno(TurnoDTO turnoDTO) {
-        Turno turno = mapper.convertValue(turnoDTO, Turno.class);
-        turnoRepository.save(turno);
+    public void eliminarTurno(Long id){
+        turnoRepository.deleteById(id);
+    }
+    public void actualizarTurno(TurnoDTO turnoDTO){
+        turnoRepository.save(turnodtoAturno(turnoDTO));
     }
 
-    public void eliminarTurno(Integer id) {
-        turnoRepository.deleteById(id);
+    public TurnoDTO turnoAturnoDTO(Turno turno){
+        TurnoDTO turnoDTO= new TurnoDTO();
+        turnoDTO.setId(turno.getId());
+        turnoDTO.setFecha(turno.getFecha());
+        turnoDTO.setPacienteId(turno.getPaciente().getId());
+        turnoDTO.setOdontologoId(turno.getOdontologo().getId());
+        return turnoDTO;
+    }
+    public Turno turnodtoAturno(TurnoDTO turnoDTO){
+        Turno turno= new Turno();
+        Odontologo odontologo= new Odontologo();
+        Paciente paciente= new Paciente();
+        odontologo.setId(turnoDTO.getOdontologoId());
+        paciente.setId(turnoDTO.getPacienteId());
+        turno.setId(turnoDTO.getId());
+        turno.setFecha(turnoDTO.getFecha());
+        turno.setPaciente(paciente);
+        turno.setOdontologo(odontologo);
+        return turno;
     }
 }
