@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-  const tablaOdontologo = document.querySelector("#odontologoTable");
+  const tablaOdontologo = document.querySelector("#div_odontologo_table");
   obtenerOdontologos()
 
         function obtenerOdontologos() {
@@ -75,11 +75,11 @@ window.addEventListener('load', function() {
 
         function actualizarOdontologo(data) {
                     const btnActualizar = document.querySelectorAll(".btn_id");
-                    console.log(btnActualizar)
                     const mostrarDatos = document.querySelector("#div_odontologo_updating");
                     btnActualizar.forEach(btn => {
                         const {id} = btn
                         btn.addEventListener("click", function() {
+                           tablaOdontologo.innerHTML = ""
                            mostrarDatos.style.display = "block";
                            const odontologo = data.find(od => od.id == id)
                            renderizarDatosActualizar(odontologo);
