@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Listado</title>
+    <title>Listado Pacientes</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/listarOdontologos.js"></script>
-    <script type="text/javascript" src="js/post_odontologo.js"></script>
+    <script type="text/javascript" src="js/listarPacientes.js"></script>
+    <script type="text/javascript" src="js/post_pacientes.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -55,20 +55,22 @@
     </div>
 </nav>
 <div class="container">
-    <div id="div_odontologo_table">
-        <h1>Listado de Odontologos</h1>
+    <div id="div_paciente_table">
+        <h1>Listado de Pacientes</h1>
         <div class="row col-md-6 table-responsive">
-            <table id="odontologoTable" class="table table-striped">
+            <table id="pacienteTable" class="table table-striped">
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Matricula</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
+                    <th>Cédula</th>
+                    <th>Fecha de ingreso</th>
+                    <th>Email</th>
                     <th></th>
                 </tr>
                 </thead>
-                <tbody id="OdontologoTableBody">
+                <tbody id="pacienteTableBody">
 
                 </tbody>
             </table>
@@ -77,15 +79,11 @@
     <div class="row">
         <div class="col-sm-6" style="display: none;
 											background-color:#e6fffa; padding:10px; border-radius:3px"
-             id="div_odontologo_updating">
-            <form id="update_odontologo_form">
+             id="div_paciente_updating">
+            <form id="update_paciente_form">
                 <div class="form-group">
                     <label >Id:</label>
-                    <input type="text" class="form-control" id="odontologo_id" readonly>
-                </div>
-                <div class="form-group">
-                    <label >Matricula:</label>
-                    <input type="text" class="form-control" placeholder="matricula" id="matricula">
+                    <input type="text" class="form-control" id="paciente_id" readonly>
                 </div>
                 <div class="form-group">
                     <label >Nombre:</label>
@@ -95,8 +93,34 @@
                     <label >Apellido:</label>
                     <input type="text" class="form-control" placeholder="apellido" id="apellido">
                 </div>
-
-
+                <div class="form-group">
+                    <label >Cédula:</label>
+                    <input type="text" class="form-control" placeholder="cédula" id="cedula">
+                </div>
+                <div class="form-group">
+                    <label >Fecha de Ingreso:</label>
+                    <input type="date" class="form-control" placeholder="fecha de ingreso" id="fechaIngreso">
+                </div>
+                <div class="form-group">
+                    <label >Calle:</label>
+                    <input type="text" class="form-control" placeholder="calle" id="calle">
+                </div>
+                <div class="form-group">
+                    <label >Número:</label>
+                    <input type="text" class="form-control" placeholder="número" id="número">
+                </div>
+                <div class="form-group">
+                    <label >Localidad:</label>
+                    <input type="text" class="form-control" placeholder="localidad" id="localidad">
+                </div>
+                <div class="form-group">
+                    <label >Provincia:</label>
+                    <input type="text" class="form-control" placeholder="provincia" id="provincia">
+                </div>
+                <div class="form-group">
+                    <label >Email:</label>
+                    <input type="text" class="form-control" placeholder="email" id="email">
+                </div>
                 <button type="submit" class="btn btn-primary">Modificar</button>
             </form>
             <div id="response" style="display:none; margin:10px">

@@ -1,16 +1,20 @@
 window.addEventListener('load', function(){
         const form = document.forms[0];
-        const matriculaOdon = document.querySelector("#matricula");
-        const nombreOdon = document.querySelector("#nombre");
-        const apellidoOdon = document.querySelector("#apellido");
+        const fechaTurnoDto = document.querySelector("#fechaTurno");
+        const pacienteID = document.querySelector("#pacienteId");
+        const odontologoID = document.querySelector("#odontologoId");
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const payload = {
-                numeroMatricula: matriculaOdon.value,
-                nombre: nombreOdon.value,
-                apellido: apellidoOdon.value
+                fechaTurno: fechaTurnoDto.value,
+                paciente: {
+                    id: pacienteID.value
+                },
+                odontologo: {
+                    id: odontologoID.value
+                }
             };
 
             const settings = {
@@ -26,7 +30,7 @@ window.addEventListener('load', function(){
         })
 
         function realizarRegistro(settings) {
-            fetch("/odontologos/registrar", settings)
+            fetch("/turnos/registrar", settings)
                 .then(async response => {
                     if (!response.ok) {
                         throw new Error("Error en la respuesta del servidor")
@@ -46,7 +50,7 @@ window.addEventListener('load', function(){
             divRespuesta.innerHTML = `
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>Exito! Odontólogo agregado</strong>
+                    <strong>Exito! Turno agregado</strong>
                 </div>
             `
         }

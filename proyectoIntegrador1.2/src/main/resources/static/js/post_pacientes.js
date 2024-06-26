@@ -1,16 +1,28 @@
 window.addEventListener('load', function(){
         const form = document.forms[0];
-        const matriculaOdon = document.querySelector("#matricula");
-        const nombreOdon = document.querySelector("#nombre");
-        const apellidoOdon = document.querySelector("#apellido");
+        const nombrePaciente = document.querySelector("#nombre");
+        const apellidoPaciente = document.querySelector("#apellido");
+        const cedulaPaciente = document.querySelector("#cedula");
+        const fechaIngresoPac = document.querySelector("#fechaIngreso");
+        const callePaciente = document.querySelector("#calle");
+        const numeroDomicilio = document.querySelector("#numero");
+        const localidadPaciente = document.querySelector("#localidad");
+        const provinciaPaciente = document.querySelector("#provincia");
+        const emailPaciente = document.querySelector("#email");
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const payload = {
-                numeroMatricula: matriculaOdon.value,
-                nombre: nombreOdon.value,
-                apellido: apellidoOdon.value
+                nombre: nombrePaciente.value,
+                apellido: apellidoPaciente.value,
+                cedula: cedulaPaciente.value,
+                fechaIngreso: fechaIngresoPac.value,
+                calle: callePaciente.value,
+                numero: numeroDomicilio.value,
+                localidad: localidadPaciente.value,
+                provincia: provinciaPaciente.value,
+                email: emailPaciente.value
             };
 
             const settings = {
@@ -26,7 +38,7 @@ window.addEventListener('load', function(){
         })
 
         function realizarRegistro(settings) {
-            fetch("/odontologos/registrar", settings)
+            fetch("/pacientes/registrar", settings)
                 .then(async response => {
                     if (!response.ok) {
                         throw new Error("Error en la respuesta del servidor")
@@ -46,7 +58,7 @@ window.addEventListener('load', function(){
             divRespuesta.innerHTML = `
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>Exito! Odontólogo agregado</strong>
+                    <strong>Exito! Paciente agregado</strong>
                 </div>
             `
         }
