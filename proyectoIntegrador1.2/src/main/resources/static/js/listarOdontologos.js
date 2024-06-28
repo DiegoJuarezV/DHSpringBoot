@@ -1,5 +1,8 @@
 window.addEventListener('load', function() {
   const tablaOdontologo = document.querySelector("#div_odontologo_table");
+  const mostrarDatos = document.querySelector("#div_odontologo_updating");
+  const formUpdate = document.querySelector("#update_odontologo_form")
+
   obtenerOdontologos()
 
         function obtenerOdontologos() {
@@ -58,11 +61,9 @@ window.addEventListener('load', function() {
 
         function eliminarOdontologo() {
             const btnEliminar = document.querySelectorAll(".btn_delete");
-                console.log(btnEliminar)
                 btnEliminar.forEach(btn => {
                     const {id} = btn
                     btn.addEventListener("click", function() {
-                        console.log("eliminado")
                         const urlEliminar = `/odontologos/${id}`
                         const settings = {
                             method: "DELETE"
@@ -75,7 +76,6 @@ window.addEventListener('load', function() {
 
         function actualizarOdontologo(data) {
                     const btnActualizar = document.querySelectorAll(".btn_id");
-                    const mostrarDatos = document.querySelector("#div_odontologo_updating");
                     btnActualizar.forEach(btn => {
                         const {id} = btn
                         btn.addEventListener("click", function() {
@@ -88,7 +88,6 @@ window.addEventListener('load', function() {
                   }
 
         function renderizarDatosActualizar(odontologo) {
-                    const formUpdate = document.querySelector("#update_odontologo_form")
                     formUpdate.innerHTML = `
                         <div class="form-group">
                             <label >Id:</label>
@@ -109,4 +108,45 @@ window.addEventListener('load', function() {
                         <button type="submit" class="btn btn-primary">Modificar</button>
                         `
                   }
+
+        formUpdate.addEventListener('submit', function(e) {
+           e.preventDefault
+           dataOdonActualizado();
+        })
+
+        function dataOdonActualizado() {
+
+                  const idAct = document.querySelector("#odontologo_id");
+                  const matriculaAct = document.querySelector("#matricula");
+                  const nombreAct = document.querySelector("#nombre");
+                  const apellidoAct = document.querySelector("#apellido");
+
+                  const payload = {
+                    id: idAct.value,
+                    numeroMatricula: matriculaAct.value,
+                    nombre: nombreAct.value,
+                    apellido: apellidoAct.value
+                  }
+
+                  const settings = {
+                    method: 'PUT',
+                    headers: {
+                      'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                  }
+
+
+                  fetch("/odontologos/actualizar", settings)
+                  .then( response => {
+                    if (!response.ok) {
+                      return Promise.reject(response)
+                    }
+                    return response.text()
+                  })
+                  .then( text => {
+                    console.log(text)
+                  })
+                  .catch(err => console.log(err))
+                }
     })

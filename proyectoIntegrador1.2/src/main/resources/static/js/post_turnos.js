@@ -8,7 +8,7 @@ window.addEventListener('load', function(){
             e.preventDefault();
 
             const payload = {
-                fechaTurno: fechaTurnoDto.value,
+                fecha: fechaTurnoDto.value,
                 paciente: {
                     id: pacienteID.value
                 },

@@ -18,10 +18,12 @@ window.addEventListener('load', function(){
                 apellido: apellidoPaciente.value,
                 cedula: cedulaPaciente.value,
                 fechaIngreso: fechaIngresoPac.value,
-                calle: callePaciente.value,
-                numero: numeroDomicilio.value,
-                localidad: localidadPaciente.value,
-                provincia: provinciaPaciente.value,
+                domicilio: {
+                    calle: callePaciente.value,
+                    numero: numeroDomicilio.value,
+                    localidad: localidadPaciente.value,
+                    provincia: provinciaPaciente.value
+                },
                 email: emailPaciente.value
             };
 

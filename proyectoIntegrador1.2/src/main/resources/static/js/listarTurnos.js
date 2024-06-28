@@ -1,9 +1,9 @@
 window.addEventListener('load', function() {
-  const tablaOdontologo = document.querySelector("#div_odontologo_table");
-  obtenerPacientes()
+  const tablaTurno = document.querySelector("#div_turno_table");
+  obtenerTurnos()
 
-        function obtenerPacientes() {
-            const url = "/pacientes";
+        function obtenerTurnos() {
+            const url = "/turnos";
             const settings = {
                 method: 'GET'
             }
@@ -15,42 +15,40 @@ window.addEventListener('load', function() {
                 }
                 try {
                     const data = await response.json();
-                    renderizarPacientes(data);
+                    renderizarTurnos(data);
                 } catch (err) {
                     console.error(err)
                 }
             })
         }
 
-        function renderizarPacientes(lista) {
+        function renderizarTurnos(lista) {
         console.log(lista)
-            const filaPaciente = document.querySelector("#pacienteTableBody")
-            filaPaciente.innerHTML = ""
-            lista.forEach(paciente => {
+            const filaTurno = document.querySelector("#turnoTableBody")
+            filaTurno.innerHTML = ""
+            lista.forEach(turno => {
                 let updateBtn = `
-                <button id="${paciente.id}"
+                <button id="${turno.id}"
                     type="button"
                     class="btn btn-info btn_id">
-                    ${paciente.id}
+                    ${turno.id}
                 </button>
                 `
                 let deleteBtn = `
                 <button
-                    id=${paciente.id}
+                    id=${turno.id}
                     type="button"
                     class="btn btn-danger btn_delete">
                     &times;
                 </button>
                 `
 
-                filaPaciente.innerHTML += `
+                filaTurno.innerHTML += `
                     <tr>
                         <td>${updateBtn}</td>
-                        <td class="td_nombre">${paciente.nombre}</td>
-                        <td class="td_apellido">${paciente.apellido}</td>
-                        <td class="td_cedula">${paciente.cedula}</td>
-                        <td class="td_fechaIngreso">${paciente.fechaIngreso}</td>
-                        <td class="td_email">${paciente.email}</td>
+                        <td class="td_fechaTurno">${turno.fecha}</td>
+                        <td class="td_nombrePaciente">${turno.pacienteId}</td>
+                        <td class="td_nombreOdontologo">${turno.odontologoId}</td>
                         <td>${deleteBtn}</td>
                     </tr>
                 `

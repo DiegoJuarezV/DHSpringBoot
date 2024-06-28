@@ -9,6 +9,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -36,9 +37,9 @@ public class ConfigWebSecurity {
         http
                 .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests((authz) -> authz
-                .requestMatchers("/get_turnos.html").hasRole("USER")
-                    .requestMatchers("/post_odontologos.html","/get_odontologos.html", "/post_turnos.html", "/post_pacientes.html", "/get_pacientes.html").hasRole("ADMIN")
-                    .requestMatchers("/odontologos/**", "/pacientes/**", "/turnos/registrar").hasRole("ADMIN")
+                    .requestMatchers("/h2-console/**").permitAll()
+                    .requestMatchers("/get_turnos.html").hasAnyRole("USER", "ADMIN")
+                    .requestMatchers("/post_odontologos.html", "/get_odontologos.html", "/post_pacientes.html", "/get_pacientes.html","/post_turnos.html", "/odontologos/**", "/pacientes/**", "/turnos/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
             )
                 .formLogin((form) -> form
@@ -46,6 +47,7 @@ public class ConfigWebSecurity {
                         .permitAll()
                 )
                 .logout(withDefaults());
+        http.headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
         return http.build();
     }
 }
