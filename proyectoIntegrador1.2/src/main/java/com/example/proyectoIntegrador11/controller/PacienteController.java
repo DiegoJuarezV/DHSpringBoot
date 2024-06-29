@@ -40,10 +40,10 @@ public class PacienteController {
 
     @GetMapping
     public ResponseEntity<List<Paciente>> listarPacientes() {
-        List<Paciente> pacientes = pacienteService.buscarPacientes();
+        /*List<Paciente> pacientes = pacienteService.buscarPacientes();
         if (pacientes.isEmpty()) {
             return ResponseEntity.noContent().build();
-        }
+        }*/
         return ResponseEntity.ok(pacienteService.buscarPacientes());
     }
 

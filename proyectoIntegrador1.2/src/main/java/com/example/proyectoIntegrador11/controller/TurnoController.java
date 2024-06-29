@@ -41,11 +41,11 @@ public class TurnoController {
 
     @GetMapping
     public ResponseEntity<List<TurnoDTO>> listarTodosLosTurnos(){
-        List<TurnoDTO> turnos = turnoService.listarTodos();
+        /*List<TurnoDTO> turnos = turnoService.listarTodos();
         if (turnos.isEmpty()) {
             return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(turnos);
+        }*/
+        return ResponseEntity.ok(turnoService.listarTodos());
     }
 
     @DeleteMapping("/{id}")
