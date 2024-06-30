@@ -31,7 +31,7 @@ public class OdontologoController {
     public ResponseEntity<Odontologo> registrar(@RequestBody Odontologo odontologo) throws BadRequestException {
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorMatricula(odontologo.getNumeroMatricula());
         if (odontologoBuscado.isPresent()) {
-           throw new BadRequestException("El odontologo ya está registrado con la matricula ingresada");
+           throw new BadRequestException("El odontólogo ya está registrado con la matricula ingresada");
         }
         return ResponseEntity.ok(odontologoService.guardarOdontologo(odontologo));
     }
@@ -41,9 +41,9 @@ public class OdontologoController {
         Optional<Odontologo> actualizarOdontologo = odontologoService.buscarOdontologoPorId(odontologo.getId());
         if (actualizarOdontologo.isPresent()) {
             odontologoService.actualizarOdontologo(odontologo);
-            return ResponseEntity.ok("Odontologo actualizado");
+            return ResponseEntity.ok("Odontólogo actualizado");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Odontologo no encontrado");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Odontólogo no encontrado");
     }
 
     @DeleteMapping("/{id}")
@@ -51,9 +51,9 @@ public class OdontologoController {
         Optional<Odontologo> odontologo = odontologoService.buscarOdontologoPorId(id);
         if (odontologo.isPresent()) {
             odontologoService.eliminarOdontologo(id);
-            return ResponseEntity.ok("Odontologo eliminado");
+            return ResponseEntity.ok("Odontólogo eliminado");
         }
-        throw new ResouceNotFounException("No existe un odontologo con id: " + id);
+        throw new ResouceNotFounException("No existe un odontólogo con id: " + id);
     }
 
     @GetMapping

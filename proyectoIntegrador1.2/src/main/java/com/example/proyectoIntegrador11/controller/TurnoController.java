@@ -36,7 +36,7 @@ public class TurnoController {
             turno.setOdontologo(odontologoBuscado.get());
             return ResponseEntity.ok(turnoService.registrarTurno(turno));
         }
-        throw new BadRequestException("El paciente y/o odontologo no está registrado en la base de datos");
+        throw new BadRequestException("El paciente y/o odontólogo no está registrado en la base de datos");
     }
 
     @GetMapping
