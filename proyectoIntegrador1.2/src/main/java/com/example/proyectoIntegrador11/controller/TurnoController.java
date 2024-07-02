@@ -5,7 +5,7 @@ import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.entity.Turno;
 import com.example.proyectoIntegrador11.entity.TurnoDTO;
 import com.example.proyectoIntegrador11.exception.BadRequestException;
-import com.example.proyectoIntegrador11.exception.ResouceNotFounException;
+import com.example.proyectoIntegrador11.exception.ResourceNotFoundException;
 import com.example.proyectoIntegrador11.service.OdontologoService;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import com.example.proyectoIntegrador11.service.TurnoService;
@@ -49,31 +49,31 @@ public class TurnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarTurno(@PathVariable("id") Long id) throws ResouceNotFounException {
+    public ResponseEntity<String> eliminarTurno(@PathVariable("id") Long id) throws ResourceNotFoundException {
         Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoId(id);
         if (turnoBuscado.isPresent()) {
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok("Turno eliminado");
         }
-        throw new ResouceNotFounException("No existe un turno con id: " + id);
+        throw new ResourceNotFoundException("No existe un turno con id: " + id);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable("id") Long id) {
+    public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable("id") Long id) throws ResourceNotFoundException {
         Optional<TurnoDTO> turno = turnoService.buscarTurnoId(id);
         if (turno.isEmpty()) {
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("El turno con ID: " + id + " no está registrado");
         }
         return ResponseEntity.ok(turno.get());
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO) {
+    public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO) throws BadRequestException {
         Optional<TurnoDTO> actualizarTurno = turnoService.buscarTurnoId(turnoDTO.getId());
         if (actualizarTurno.isPresent()) {
             turnoService.actualizarTurno(turnoDTO);
             return ResponseEntity.ok("Turno actualizado");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Turno no encontrado");
+        throw new BadRequestException("Error en actualización: Turno no encontrado");
     }
 }

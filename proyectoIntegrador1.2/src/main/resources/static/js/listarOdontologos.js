@@ -140,7 +140,11 @@ window.addEventListener('load', () => {
       return response.text();
     })
     .then(text => renderizarMsjExito(text))
-    .catch(err => renderizarMsjError(err))
+    .catch(err => {
+      if(err.status == 400) {
+        renderizarMsjError("La matricula debe ser valor numérico")
+      }
+    })
   }
 
   function renderizarMsjExito(msje) {
