@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
           <button id="${turno.id}"
             type="button"
             class="btn btn-info btn_id">
-            ${turno.id}
+            Actualizar
           </button>
         `
         let deleteBtn = `
@@ -43,15 +43,16 @@ window.addEventListener('load', () => {
             id=${turno.id}
             type="button"
             class="btn btn-danger btn_delete">
-            &times;
+            Borrar
           </button>
         `
         filaTurno.innerHTML += `
           <tr>
-            <td>${updateBtn}</td>
+            <td class="td_id">${turno.id}</td>
             <td class="td_fechaTurno">${turno.fecha}</td>
-            <td class="td_id_paciente">${turno.paciente.id}</td>
-            <td class="td_id_odontologo">${turno.odontologo.id}</td>
+            <td class="td_id_paciente">${turno.paciente.nombre}</td>
+            <td class="td_id_odontologo">${turno.odontologo.nombre}</td>
+            <td>${updateBtn}</td>
             <td>${deleteBtn}</td>
           </tr>
         `

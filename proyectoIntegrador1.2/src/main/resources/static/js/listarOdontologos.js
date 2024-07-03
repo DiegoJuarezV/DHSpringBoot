@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
         <button id="${odontologo.id}"
           type="button"
           class="btn btn-info btn_id">
-          ${odontologo.id}
+          Actualizar
         </button>
       `
       let deleteBtn = `
@@ -43,14 +43,16 @@ window.addEventListener('load', () => {
           id=${odontologo.id}
           type="button"
           class="btn btn-danger btn_delete">
-          &times;
+          Borrar
         </button>
       `
       filaOdontologo.innerHTML += `
         <tr>
+          <td class="td_id">${odontologo.id}</td>
+          <td class="td_matricula">${odontologo.numeroMatricula}</td>
+          <td class="td_nombre">${odontologo.nombre}</td>
+          <td class="td_apellido">${odontologo.apellido}</td>
           <td>${updateBtn}</td>
-          <td class="td_pacienteId">${odontologo.nombre}</td>
-          <td class="td_odontologoId">${odontologo.apellido}</td>
           <td>${deleteBtn}</td>
         </tr>
       `

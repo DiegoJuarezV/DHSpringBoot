@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
         <button id="${paciente.id}"
           type="button"
           class="btn btn-info btn_id">
-          ${paciente.id}
+          Actualizar
         </button>
       `
       let deleteBtn = `
@@ -43,17 +43,18 @@ window.addEventListener('load', () => {
           id=${paciente.id}
           type="button"
           class="btn btn-danger btn_delete">
-          &times;
+          Borrar
         </button>
       `
       filaPaciente.innerHTML += `
         <tr>
-          <td>${updateBtn}</td>
+          <td class="td_id">${paciente.id}</td>
           <td class="td_nombre">${paciente.nombre}</td>
           <td class="td_apellido">${paciente.apellido}</td>
           <td class="td_cedula">${paciente.cedula}</td>
           <td class="td_fechaIngreso">${paciente.fechaIngreso}</td>
           <td class="td_email">${paciente.email}</td>
+          <td>${updateBtn}</td>
           <td>${deleteBtn}</td>
         </tr>
       `
@@ -89,7 +90,7 @@ window.addEventListener('load', () => {
   function renderizarDatosActualizar(paciente) {
     formUpdate.innerHTML = `
       <div class="form-group">
-        <label >Id:</label>
+        <label >ID Paciente:</label>
         <input type="text" class="form-control" id="paciente_id" value="${paciente.id}" readonly>
       </div>
       <div class="form-group">
@@ -107,6 +108,10 @@ window.addEventListener('load', () => {
       <div class="form-group">
         <label >Fecha de Ingreso:</label>
         <input type="date" class="form-control" placeholder="fecha de ingreso" id="fechaIngreso" value="${paciente.fechaIngreso}">
+      </div>
+      <div class="form-group">
+        <label >Id Domicilio:</label>
+        <input type="text" class="form-control" id="domicilio_id" value="${paciente.domicilio.id}" readonly>
       </div>
       <div class="form-group">
         <label >Calle:</label>
@@ -143,6 +148,7 @@ window.addEventListener('load', () => {
     const apellidoAct = document.querySelector("#apellido");
     const cedulaAct = document.querySelector("#cedula");
     const fechaIngresoAct = document.querySelector("#fechaIngreso");
+    const domicilioId = document.querySelector("#domicilio_id");
     const calleAct = document.querySelector("#calle");
     const numeroAct = document.querySelector("#numero");
     const localidadAct = document.querySelector("#localidad");
@@ -156,6 +162,7 @@ window.addEventListener('load', () => {
       cedula: cedulaAct.value,
       fechaIngreso: fechaIngresoAct.value,
       domicilio: {
+        id: domicilioId.value,
         calle: calleAct.value,
         numero: numeroAct.value,
         localidad: localidadAct.value,

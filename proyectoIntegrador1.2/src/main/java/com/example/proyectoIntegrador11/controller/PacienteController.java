@@ -1,6 +1,7 @@
 package com.example.proyectoIntegrador11.controller;
 
 
+import com.example.proyectoIntegrador11.dto.PacienteDTO;
 import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.exception.BadRequestException;
 import com.example.proyectoIntegrador11.exception.ResourceNotFoundException;
@@ -20,8 +21,8 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Paciente> bucarPacienteId(@PathVariable("id") Long id) throws ResourceNotFoundException {
-        Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
+    public ResponseEntity<PacienteDTO> bucarPacienteId(@PathVariable("id") Long id) throws ResourceNotFoundException {
+        Optional<PacienteDTO> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             return ResponseEntity.ok(paciente.get());
         }
@@ -30,7 +31,7 @@ public class PacienteController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Long id) throws ResourceNotFoundException {
-        Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
+        Optional<PacienteDTO> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             pacienteService.eliminarPaciente(id);
             return ResponseEntity.ok().body("Paciente eliminado");
@@ -39,7 +40,7 @@ public class PacienteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Paciente>> listarPacientes() {
+    public ResponseEntity<List<PacienteDTO>> listarPacientes() {
         /*List<Paciente> pacientes = pacienteService.buscarPacientes();
         if (pacientes.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -48,8 +49,8 @@ public class PacienteController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Paciente> registrar(@RequestBody Paciente paciente) throws BadRequestException {
-        Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorEmail(paciente.getEmail());
+    public ResponseEntity<PacienteDTO> registrar(@RequestBody Paciente paciente) throws BadRequestException {
+        Optional<PacienteDTO> pacienteBuscado = pacienteService.buscarPacientePorEmail(paciente.getEmail());
         if (pacienteBuscado.isPresent()) {
             throw new BadRequestException("El paciente ya está registrado con el email ingresado");
         }
@@ -58,7 +59,7 @@ public class PacienteController {
 
     @PutMapping("/actualizar")
     public ResponseEntity<String> actualizar(@RequestBody Paciente paciente) throws BadRequestException {
-        Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(paciente.getId());
+        Optional<PacienteDTO> pacienteBuscado = pacienteService.buscarPacientePorId(paciente.getId());
         if (pacienteBuscado.isPresent()) {
             pacienteService.actualizarPaciente(paciente);
             return ResponseEntity.ok().body("Paciente actualizado");
