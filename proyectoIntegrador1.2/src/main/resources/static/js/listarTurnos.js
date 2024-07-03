@@ -50,8 +50,8 @@ window.addEventListener('load', () => {
           <tr>
             <td>${updateBtn}</td>
             <td class="td_fechaTurno">${turno.fecha}</td>
-            <td class="td_id_paciente">${turno.pacienteId}</td>
-            <td class="td_id_odontologo">${turno.odontologoId}</td>
+            <td class="td_id_paciente">${turno.paciente.id}</td>
+            <td class="td_id_odontologo">${turno.odontologo.id}</td>
             <td>${deleteBtn}</td>
           </tr>
         `
@@ -96,11 +96,11 @@ window.addEventListener('load', () => {
         </div>
         <div class="form-group">
             <label >ID Paciente:</label>
-            <input type="text" class="form-control" placeholder="ID de Odontólogo" id="id_paciente" value="${turno.pacienteId}">
+            <input type="text" class="form-control" placeholder="ID de Odontólogo" id="id_paciente" value="${turno.paciente.id}">
         </div>
         <div class="form-group">
             <label >ID Odontólogo:</label>
-            <input type="text" class="form-control" placeholder="ID de Paciente" id="id_odontologo" value="${turno.odontologoId}">
+            <input type="text" class="form-control" placeholder="ID de Paciente" id="id_odontologo" value="${turno.odontologo.id}">
         </div>
         <button type="submit" class="btn btn-primary">Modificar</button>
       `
@@ -120,8 +120,12 @@ window.addEventListener('load', () => {
       const payload = {
         id: idAct.value,
         fecha: fechaTurnoAct.value,
-        pacienteId: pacienteIdAct.value,
-        odontologoId: odontologoIdAct.value
+        paciente: {
+          id: pacienteIdAct.value,
+        },
+        odontologo: {
+          id: odontologoIdAct.value
+        }
       }
 
       const settings = {

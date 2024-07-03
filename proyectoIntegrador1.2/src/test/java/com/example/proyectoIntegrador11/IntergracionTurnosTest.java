@@ -1,5 +1,6 @@
 package com.example.proyectoIntegrador11;
 
+import com.example.proyectoIntegrador11.dto.TurnoDTO;
 import com.example.proyectoIntegrador11.entity.*;
 import com.example.proyectoIntegrador11.service.OdontologoService;
 import com.example.proyectoIntegrador11.service.PacienteService;
@@ -34,10 +35,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
         public void cargarDatos(){
             Paciente pacienteGuardado= pacienteService.guardarPaciente(new Paciente("Jorgito","Pereyra","111111", LocalDate.of(2024,6,19),new Domicilio("Calle falsa",123,"La Rioja","Argentina"),"jorgito@digitalhouse.com"));
             Odontologo odontologoGuardado= odontologoService.guardarOdontologo(new Odontologo(125L,"Ivan","Bustamante"));
-            TurnoDTO turnoGuardado= turnoService.registrarTurno(new Turno(pacienteGuardado,odontologoGuardado,LocalDate.of(2024,6,19)));
+            Turno turnoGuardado = turnoService.registrarTurno(new TurnoDTO(LocalDate.of(2024,10,25), pacienteGuardado, odontologoGuardado));
 
             Paciente pacienteGuardado2= pacienteService.guardarPaciente(new Paciente("Daniela","Martinez","222222", LocalDate.of(2024,8,25),new Domicilio("Calle falsa2",12,"La Paz","Bolivia"),"daniela@digitalhouse.com"));
-            TurnoDTO turnoGuardado2= turnoService.registrarTurno(new Turno(pacienteGuardado2,odontologoGuardado,LocalDate.of(2024,12,10)));
+            Turno turnoGuardado2= turnoService.registrarTurno(new TurnoDTO(LocalDate.of(2024,12,10), pacienteGuardado2,odontologoGuardado));
         }
 
         @Test

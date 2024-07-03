@@ -3,14 +3,13 @@ package com.example.proyectoIntegrador11.controller;
 import com.example.proyectoIntegrador11.entity.Odontologo;
 import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.entity.Turno;
-import com.example.proyectoIntegrador11.entity.TurnoDTO;
+import com.example.proyectoIntegrador11.dto.TurnoDTO;
 import com.example.proyectoIntegrador11.exception.BadRequestException;
 import com.example.proyectoIntegrador11.exception.ResourceNotFoundException;
 import com.example.proyectoIntegrador11.service.OdontologoService;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import com.example.proyectoIntegrador11.service.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,13 +27,11 @@ public class TurnoController {
     private OdontologoService odontologoService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<TurnoDTO> guardarTurno(@RequestBody Turno turno) throws BadRequestException {
-        Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turno.getPaciente().getId());
-        Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turno.getOdontologo().getId());
+    public ResponseEntity<Turno> guardarTurno(@RequestBody TurnoDTO turnoDTO) throws BadRequestException {
+        Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turnoDTO.getPaciente().getId());
+        Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologo().getId());
         if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
-            turno.setPaciente(pacienteBuscado.get());
-            turno.setOdontologo(odontologoBuscado.get());
-            return ResponseEntity.ok(turnoService.registrarTurno(turno));
+            return ResponseEntity.ok(turnoService.registrarTurno(turnoDTO));
         }
         throw new BadRequestException("El paciente y/o odontólogo no está registrado en la base de datos");
     }
