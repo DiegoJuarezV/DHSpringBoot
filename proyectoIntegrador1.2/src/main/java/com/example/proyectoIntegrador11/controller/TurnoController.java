@@ -1,5 +1,6 @@
 package com.example.proyectoIntegrador11.controller;
 
+import com.example.proyectoIntegrador11.dto.OdontologoDTO;
 import com.example.proyectoIntegrador11.entity.Odontologo;
 import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.entity.Turno;
@@ -29,7 +30,7 @@ public class TurnoController {
     @PostMapping("/registrar")
     public ResponseEntity<Turno> guardarTurno(@RequestBody TurnoDTO turnoDTO) throws BadRequestException {
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turnoDTO.getPaciente().getId());
-        Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologo().getId());
+        Optional<OdontologoDTO> odontologoBuscado = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologo().getId());
         if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
             return ResponseEntity.ok(turnoService.registrarTurno(turnoDTO));
         }

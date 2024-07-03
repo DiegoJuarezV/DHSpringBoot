@@ -1,5 +1,6 @@
 package com.example.proyectoIntegrador11.controller;
 
+import com.example.proyectoIntegrador11.dto.OdontologoDTO;
 import com.example.proyectoIntegrador11.entity.Odontologo;
 import com.example.proyectoIntegrador11.exception.BadRequestException;
 import com.example.proyectoIntegrador11.exception.ResourceNotFoundException;
@@ -19,8 +20,8 @@ public class OdontologoController {
     private OdontologoService odontologoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Odontologo> buscarPorId(@PathVariable("id") Long id) throws ResourceNotFoundException{
-       Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(id);
+    public ResponseEntity<OdontologoDTO> buscarPorId(@PathVariable("id") Long id) throws ResourceNotFoundException{
+       Optional<OdontologoDTO> odontologoBuscado = odontologoService.buscarOdontologoPorId(id);
        if (odontologoBuscado.isPresent()) {
            return ResponseEntity.ok(odontologoBuscado.get());
        }
@@ -28,8 +29,8 @@ public class OdontologoController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Odontologo> registrar(@RequestBody Odontologo odontologo) throws BadRequestException {
-        Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorMatricula(odontologo.getNumeroMatricula());
+    public ResponseEntity<OdontologoDTO> registrar(@RequestBody Odontologo odontologo) throws BadRequestException {
+        Optional<OdontologoDTO> odontologoBuscado = odontologoService.buscarOdontologoPorMatricula(odontologo.getNumeroMatricula());
         if (odontologoBuscado.isPresent()) {
            throw new BadRequestException("El odontólogo ya está registrado con la matricula ingresada");
         }
@@ -37,8 +38,8 @@ public class OdontologoController {
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<String> actualizar(@RequestBody Odontologo odontologo) throws BadRequestException {
-        Optional<Odontologo> actualizarOdontologo = odontologoService.buscarOdontologoPorId(odontologo.getId());
+    public ResponseEntity<String> actualizar(@RequestBody OdontologoDTO odontologo) throws BadRequestException {
+        Optional<OdontologoDTO> actualizarOdontologo = odontologoService.buscarOdontologoPorId(odontologo.getId());
         if (actualizarOdontologo.isPresent()) {
             odontologoService.actualizarOdontologo(odontologo);
             return ResponseEntity.ok("Odontólogo actualizado");
@@ -48,7 +49,7 @@ public class OdontologoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminar(@PathVariable("id") Long id) throws ResourceNotFoundException {
-        Optional<Odontologo> odontologo = odontologoService.buscarOdontologoPorId(id);
+        Optional<OdontologoDTO> odontologo = odontologoService.buscarOdontologoPorId(id);
         if (odontologo.isPresent()) {
             odontologoService.eliminarOdontologo(id);
             return ResponseEntity.ok("Odontólogo eliminado");
@@ -57,7 +58,7 @@ public class OdontologoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Odontologo>> listarTodos() {
+    public ResponseEntity<List<OdontologoDTO>> listarTodos() {
         return ResponseEntity.ok(odontologoService.buscarOdontologos());
     }
 }

@@ -49,7 +49,6 @@ window.addEventListener('load', () => {
       filaOdontologo.innerHTML += `
         <tr>
           <td>${updateBtn}</td>
-          <td class="td_fechaTurno">${odontologo.numeroMatricula}</td>
           <td class="td_pacienteId">${odontologo.nombre}</td>
           <td class="td_odontologoId">${odontologo.apellido}</td>
           <td>${deleteBtn}</td>
