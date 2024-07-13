@@ -5,10 +5,7 @@ import com.example.proyectoIntegrador11.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -30,5 +27,14 @@ public class AccesoRegistroController {
         }
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return ResponseEntity.ok(usuarioRepository.save(usuario));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        if (usuario.isPresent()) {
+            return ResponseEntity.ok(usuario.get());
+        }
+        return ResponseEntity.notFound().build();
     }
 }

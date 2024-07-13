@@ -1,24 +1,23 @@
 window.addEventListener('load', () => {
-  const nombre = document.querySelector("#nombreInicio");
-  const url = "/odontologos/1"
+  const nombreUser = document.querySelector("#nombreInicio");
+  const userId = localStorage.getItem('userId');
+  const apiUrl = `/usuarios/${userId}`;
 
-  obtenerNombre();
-
-  async function obtenerNombre() {
+  async function obtenerRegistros() {
     const settings = {
       method: 'GET'
     }
 
     try {
-      const response = await fetch(url, settings);
+      const response = await fetch(apiUrl, settings);
       if (!response.ok) {
         throw response;
       }
       const data = await response.json();
-      console.log(data);
-      nombre.innerHTML = data.nombre
+      nombreUser.innerHTML = data.nombre
     } catch (err) {
       console.error(err);
     }
   }
 })
+
