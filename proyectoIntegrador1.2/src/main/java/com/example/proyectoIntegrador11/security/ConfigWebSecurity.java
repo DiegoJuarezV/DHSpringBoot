@@ -37,12 +37,13 @@ public class ConfigWebSecurity {
         http
                 .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests((authz) -> authz
-                    .requestMatchers("/h2-console/**").permitAll()
+                    .requestMatchers("/registro.html", "/custom_login.html", "/js/registroUsuario.js", "/h2-console/**", "/usuarios/**").permitAll()
                     .requestMatchers("/get_turnos.html").hasAnyRole("USER", "ADMIN")
                     .requestMatchers("/post_odontologos.html", "/get_odontologos.html", "/post_pacientes.html", "/get_pacientes.html","/post_turnos.html", "/odontologos/**", "/pacientes/**", "/turnos/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
             )
                 .formLogin((form) -> form
+                        .loginPage("/custom_login.html")
                         .defaultSuccessUrl("/index.html", true)
                         .permitAll()
                 )
