@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
     divRespuesta.innerHTML = `
       <div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Error al realizar registro</strong>
+          <strong>ID´s incorrectos o error al cargar los datos.</strong>
       </div>
     `
   }
